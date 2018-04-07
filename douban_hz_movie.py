@@ -11,6 +11,7 @@ def get_movies():
 	'user-agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
 	'Host':'movie.douban.com'
 	}
+	movie_list = []
 	link = 'https://movie.douban.com/cinema/nowplaying/hangzhou/'
 	r = requests.get(link,headers=headers,timeout=10)
 	soup = BeautifulSoup(r.text,'html.parser')
@@ -20,5 +21,6 @@ def get_movies():
 		dic1 = soup_all[i]
 		dic2 = dic1.attrs
 		res = dic2['data-title']
-		print(res)
+		movie_list.append(res)
+	print(movie_list)
 get_movies()
