@@ -17,7 +17,7 @@ def get_movies():
 	soup = BeautifulSoup(r.text,'html.parser')
 	soup_all = soup.find(id="wrapper").find(id="content").find(class_='grid-16-8 clearfix').find(class_='article').find(id="nowplaying").find(class_='mod-bd').find(class_='lists').find_all(class_='list-item')
 	x = len(soup_all)
-	for i in range(1,x):
+	for i in range(0,x):
 		dic1 = soup_all[i]
 		dic2 = dic1.attrs
 		res = dic2['data-title']
