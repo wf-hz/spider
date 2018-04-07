@@ -2,6 +2,14 @@
 # -*- coding: utf-8 -*- 
 # @wufeng 2018-04-07
 
+#爬虫分析：
+#1、先从http://www.mzitu.com/all，调用all_url函数获取页面中获取全部的URL数据
+#2、在all_url函数中使用for循环，循环中调用mkdir函数创建相应的图片文件夹，调用html函数获取图片页面地址
+#3、在html函数中使用BeautifulSoup获取每一张图片的URL，使用for循环调用img函数
+#4、在img函数中获取到图片实际的地址，并调用save函数
+#5、在save函数中保存图片到本地
+#注：把request也定义成一个通用的函数，使用get请求，获取网页的response 然后返回
+
 import requests
 from bs4 import BeautifulSoup
 import re
